@@ -20,7 +20,7 @@ namespace LXP.Api.Controllers
         }
 
         [HttpPost("/lxp/course")]
-        public async Task<IActionResult> AddCourseDetails(CourseViewModel course)
+        public IActionResult AddCourseDetails(CourseViewModel course)
         {
             // Validate model state
             if (!ModelState.IsValid)
@@ -28,7 +28,7 @@ namespace LXP.Api.Controllers
                 return BadRequest(ModelState);
             }
 
-            var isCourseCreated = _courseServices.AddCourse(course);
+            bool isCourseCreated = _courseServices.AddCourse(course);
             if (isCourseCreated)
             {
                 return Ok(CreateInsertResponse(_courseServices.GetCourseDetailsByCourseName(course.Title)));
@@ -40,7 +40,7 @@ namespace LXP.Api.Controllers
         [HttpGet("/lxp/course/{id}")]
         public async Task<IActionResult> GetCourseDetailsByCourseId(string id)
         {
-            Course course=_courseServices.GetCourseDetailsByCourseId(id);
+            CourseListViewModel course=_courseServices.GetCourseDetailsByCourseId(id);
             return Ok(CreateSuccessResponse(course));
         }
 

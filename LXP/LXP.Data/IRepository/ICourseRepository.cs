@@ -10,7 +10,7 @@ namespace LXP.Data.IRepository
     public interface ICourseRepository
     {
         Course GetCourseDetailsByCourseId(Guid courseId);
-        Task AddCourse(Course course);
+        void AddCourse(Course course);
         bool AnyCourseByCourseTitle(string courseTitle);
         Course GetCourseDetailsByCourseName(string courseName);
     }

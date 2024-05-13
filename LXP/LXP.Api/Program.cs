@@ -36,6 +36,11 @@ builder.Services.AddScoped<ICourseTopicRepository,CourseTopicRepository>();
 builder.Services.AddScoped<ICourseTopicServices,CourseTopicServices>();
 builder.Services.AddScoped<ICourseRepository,CourseRepository>();
 builder.Services.AddScoped<ICourseServices,CourseServices>();
+//builder.Services.AddScoped<IMaterialRepository, MaterialRepository>();
+//builder.Services.AddScoped<IMaterialServices, MaterialServices>();
+builder.Services.AddScoped<IMaterialRepository,MaterialRepository>();
+builder.Services.AddScoped<IMaterialServices,MaterialServices>();
+builder.Services.AddScoped<IMaterialTypeRepository,MaterialTypeRepository>();
 builder.Services.AddSingleton<LXPDbContext>();
 builder.Services.AddControllers()
     .AddFluentValidation(v =>

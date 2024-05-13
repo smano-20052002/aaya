@@ -62,7 +62,6 @@ D:\LXP\LXP_1\LXP\LXP.Data\obj\Debug\net8.0\LXP.Data.GeneratedMSBuildEditorConfig
 D:\LXP\LXP_1\LXP\LXP.Data\obj\Debug\net8.0\LXP.Data.AssemblyInfoInputs.cache
 D:\LXP\LXP_1\LXP\LXP.Data\obj\Debug\net8.0\LXP.Data.AssemblyInfo.cs
 D:\LXP\LXP_1\LXP\LXP.Data\obj\Debug\net8.0\LXP.Data.csproj.CoreCompileInputs.cache
-D:\LXP\LXP_1\LXP\LXP.Data\obj\Debug\net8.0\LXP.Data.sourcelink.json
 D:\LXP\LXP_1\LXP\LXP.Data\obj\Debug\net8.0\LXP.Data.csproj.CopyComplete
 D:\LXP\LXP_1\LXP\LXP.Data\obj\Debug\net8.0\LXP.Data.dll
 D:\LXP\LXP_1\LXP\LXP.Data\obj\Debug\net8.0\refint\LXP.Data.dll

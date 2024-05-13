@@ -10,8 +10,8 @@ namespace LXP.Core.IServices
 {
     public interface ICourseServices
     {
-        Course GetCourseDetailsByCourseId(string courseId);
-        Course GetCourseDetailsByCourseName(string courseName);
+        CourseListViewModel GetCourseDetailsByCourseId(string courseId);
+        CourseListViewModel GetCourseDetailsByCourseName(string courseName);
         bool AddCourse(CourseViewModel course);
     }
 }

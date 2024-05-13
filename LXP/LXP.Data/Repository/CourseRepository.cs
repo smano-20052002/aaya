@@ -23,12 +23,12 @@ namespace LXP.Data.Repository
         }
         public Course GetCourseDetailsByCourseName(string courseName)
         {
-            return _lXPDbContext.Courses.FirstOrDefault(course=>course.Title==courseName);
+            return _lXPDbContext.Courses.Include(course=>course.Level).Include(course=>course.Catagory).FirstOrDefault(course=>course.Title==courseName);
         }
-        public async Task AddCourse(Course course)
+        public void AddCourse(Course course)
         {
-            await _lXPDbContext.Courses.AddAsync(course);
-            await _lXPDbContext.SaveChangesAsync();
+            _lXPDbContext.Courses.Add(course);
+            _lXPDbContext.SaveChanges();
         }
         public bool AnyCourseByCourseTitle(string courseTitle)
         {

@@ -32,9 +32,9 @@ namespace LXP.Data.Repository
         {
             return await _lXPDbContext.Materials.FirstOrDefaultAsync(material => material.Name == materialName && material.Topic == topic);
         }
-        public object GetAllMaterialDetailsByTopic(Topic topic)
+        public List<Material> GetAllMaterialDetailsByTopicAndType(Topic topic, MaterialType materialType)
         {
-            return _lXPDbContext.Materials.Where(material=>material.IsActive==true&&material.Topic==topic);
+            return _lXPDbContext.Materials.Where(material=>material.IsActive==true&&material.Topic==topic&& material.MaterialType==materialType).Include(material => material.Topic).Include(material => material.MaterialType).ToList();
 
         }
 

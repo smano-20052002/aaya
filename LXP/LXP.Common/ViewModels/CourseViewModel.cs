@@ -36,7 +36,7 @@ namespace LXP.Common.ViewModels
         ///<example>This course contains the detailed explanation about the Html structure</example>
 
         public string Description { get; set; }
-
+        public string CreatedBy {  get; set; }
         ///<Summary>
         ///Course Duration
         ///</Summary>

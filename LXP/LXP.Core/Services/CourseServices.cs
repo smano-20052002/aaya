@@ -63,12 +63,12 @@ namespace LXP.Core.Services
                     Description = course.Description,
                     Duration = course.Duration,
                     Thumbnail = uniqueFileName,
-                    CreatedBy = "Admin",
+                    CreatedBy = course.CreatedBy,
                     CreatedAt = DateTime.Now,
                     IsActive = true,
                     IsAvailable = true,
-                    ModifiedAt = DateTime.Now,
-                    ModifiedBy = "Admin"
+                    ModifiedAt = null,
+                    ModifiedBy = null
 
 
                 };
@@ -82,21 +82,29 @@ namespace LXP.Core.Services
             }
         }
 
-        public Course GetCourseDetailsByCourseId(string courseId)
+        public CourseListViewModel GetCourseDetailsByCourseId(string courseId)
         {
             var course = _courseRepository.GetCourseDetailsByCourseId(Guid.Parse(courseId));
-            var courseDetails = new Course
+             
+            var courseDetails = new CourseListViewModel
             {
+               CourseId = course.CourseId,
                Title = course.Title,
                Description = course.Description,
-               Catagory=course.Catagory,
-               Level=course.Level,
+               Catagory=course.Catagory.Category,
+               Level=course.Level.Level,
                Duration = course.Duration,
                Thumbnail= String.Format("{0}://{1}{2}/wwwroot/CourseThumbnailImages/{3}",
                                              _contextAccessor.HttpContext.Request.Scheme,
                                              _contextAccessor.HttpContext.Request.Host,
                                              _contextAccessor.HttpContext.Request.PathBase,
-                                             course.Thumbnail)
+                                             course.Thumbnail),
+               CreatedAt=course.CreatedAt,
+               IsActive=course.IsActive,
+               IsAvailable=course.IsAvailable, 
+               ModifiedAt=course.ModifiedAt,
+               CreatedBy=course.CreatedBy,
+               ModifiedBy=course.ModifiedBy,
            
             };
             return courseDetails;
@@ -104,21 +112,29 @@ namespace LXP.Core.Services
 
 
         }
-        public Course GetCourseDetailsByCourseName(string courseName)
+        public CourseListViewModel GetCourseDetailsByCourseName(string courseName)
         {
             var course = _courseRepository.GetCourseDetailsByCourseName(courseName);
-            var courseDetails = new Course
+            var courseDetails = new CourseListViewModel
             {
+                CourseId = course.CourseId,
                 Title = course.Title,
                 Description = course.Description,
-                Catagory = course.Catagory,
-                Level = course.Level,
+                Catagory = course.Catagory.Category,
+                Level = course.Level.Level,
                 Duration = course.Duration,
                 Thumbnail = String.Format("{0}://{1}{2}/wwwroot/CourseThumbnailImages/{3}",
                                              _contextAccessor.HttpContext.Request.Scheme,
                                              _contextAccessor.HttpContext.Request.Host,
                                              _contextAccessor.HttpContext.Request.PathBase,
-                                             course.Thumbnail)
+                                             course.Thumbnail),
+                CreatedAt = course.CreatedAt,
+                IsActive = course.IsActive,
+                IsAvailable = course.IsAvailable,
+                ModifiedAt = course.ModifiedAt,
+                CreatedBy = course.CreatedBy,
+                ModifiedBy = course.ModifiedBy,
+
 
             };
             return courseDetails;
